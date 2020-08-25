@@ -14,7 +14,7 @@
 	<!-- 디비 접속 -->
     <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
         <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
-        <property name="url" value="jdbc:log4jdbc:mariadb://localhost:3306/medicine"/>
+        <property name="url" value="jdbc:log4jdbc:mariadb://localhost:3306/ev"/>
         <property name="username" value="root"/>
         <property name="password" value="1234"/>
     </bean>
@@ -30,7 +30,7 @@
     </bean>	
     
     <!-- scan -->
-    <context:component-scan base-package="com.medicine.service"></context:component-scan>
-    <context:component-scan base-package="com.medicine.dao"></context:component-scan>
-    <context:component-scan base-package="com.medicine.vo"></context:component-scan>	
+    <context:component-scan base-package="com.ev.service"></context:component-scan>
+    <context:component-scan base-package="com.ev.dao"></context:component-scan>
+    <context:component-scan base-package="com.ev.vo"></context:component-scan>	
 </beans>

@@ -1,4 +1,4 @@
-package com.medicine.vo;
+package com.ev.vo;
 
 import java.util.Date;
 
