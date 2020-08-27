@@ -26,6 +26,9 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.ev.controller" />
+	<context:component-scan base-package="com.ev.dao" />
+	<context:component-scan base-package="com.ev.service" />
+	<context:component-scan base-package="com.ev.vo" />
 	
 	
 	

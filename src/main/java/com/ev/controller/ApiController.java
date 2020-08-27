@@ -2,6 +2,7 @@ package com.ev.controller;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -21,30 +22,27 @@ import com.ev.service.ApiService;
 import com.ev.vo.ApiVO;
 
 @Controller
-public class HomeController {
+@RequestMapping("/api/*")
+public class ApiController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ApiController.class);
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
-	}
+	@Inject
+	ApiService service;
 	
 	@RequestMapping(value = "/up", method = RequestMethod.GET)
-	public String location() {
+	public String api(EvApi api) throws Exception {
 		logger.info("Welcome home! The client locale is {}.");
 		
+			service.delete();
+			service.inc();
+			List<ApiVO> list = api.api();
+			
+			for(ApiVO vo : list) {	
+			service.insert(vo);
+			}
 		
-		return "redirect:/";
+		return "home";
 	}
 	
 }

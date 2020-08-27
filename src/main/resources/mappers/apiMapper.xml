@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="apiMapper">
+	<!-- 게시판 글 작성 -->
+	<insert id="insertapi">
+
+	    INSERT INTO item(   	addr
+								,c_tp
+								,cp_id
+								,cp_nm
+								,cp_stat
+								,cp_tp
+								,cs_id
+								,cs_nm
+								,lat
+								,longi
+								,statUT 	)
+	                  VALUES(    #{addr}
+								,#{c_tp}
+								, #{cp_id}
+								, #{cp_nm}
+								, #{cp_stat}
+								, #{cp_tp}
+								, #{cs_id}
+								, #{cs_nm}
+								, #{lat}
+								, #{longi} 
+								, #{statUT} );
+    </insert>
+    <update id="inc">
+					ALTER TABLE item AUTO_INCREMENT=1;
+    </update>
+    
+    <delete id="deleteapi">
+    DELETE FROM item
+    </delete>
+ 
+</mapper>
