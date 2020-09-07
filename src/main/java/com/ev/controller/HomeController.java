@@ -38,13 +38,6 @@ public class HomeController {
 		
 		return "home";
 	}
-	
-	@RequestMapping(value = "/up", method = RequestMethod.GET)
-	public String location() {
-		logger.info("Welcome home! The client locale is {}.");
-		
-		
-		return "redirect:/";
-	}
+
 	
 }
